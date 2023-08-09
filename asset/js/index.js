@@ -8,8 +8,8 @@ const portofolioContainer = document.getElementById("portofolioContainer");
 
 
 portofolioData.forEach(project => {
-    const projectItem = document.createElement("div")
-    projectItem.className = "item"
+    const projectItem = document.createElement("div");
+    projectItem.className = "item";
     projectItem.innerHTML = `
     <h2> ${project.title}</h2>
     <p> ${project.description}</p>
