@@ -10,6 +10,15 @@ class Person {
 
         // 1. Tambahkan di constructor untuk set value gender
     }
+    setName(name) {
+        this.name = name
+        return this
+    }
+    setGender(gender) {
+        this.gender = gender
+        return this
+
+    }
 
     setTitle() {
         if (this.gender === "L") {
@@ -54,3 +63,31 @@ console.log(persons)
 const personFind = Person.find("Nyonya Sabrina")
 console.log("hasil pencarian : ");
 console.log(personFind);
+
+class Student extends Person {
+    setKelas(kelas) {
+        //1. argumant set nilai class
+        this.kelas = kelas
+        return this;
+    }
+    // 4. tambahkan method setSekolah
+    setSekolah(sekolah) {
+        this.sekolah = sekolah;
+        return this;
+    }
+
+
+}
+
+// 2. Set class dengan bentuk builder pattern
+
+const student1 =
+    new Student()
+        .setName("Fitri")
+        .setGender("P")
+        .setKelas("FWD")
+        .setSekolah("Binar")
+
+
+// 3. Tampilkan student
+console.log(student1);
