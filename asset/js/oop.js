@@ -1,7 +1,7 @@
 const LIST_OF_BOOK = [];
 
 class Book {
-    constructor(title, author, year){
+    constructor(title, author, year) {
         this.title = title;
         this.author = author;
         this.year = year;
@@ -9,21 +9,21 @@ class Book {
     getBook() {
         return this;
     }
-    static setTableRow(){
-        LIST_OF_BOOK.forEach((data) =>{
-            $("#table-book tbody").append(`<tr><td>${data.title}</td><td>${data.author}</td><td>${data.year}</td><td>${(data.category) ? data.category: "_"}  </td></tr>`);
+    static setTableRow() {
+        LIST_OF_BOOK.forEach((data) => {
+            $("#table-book tbody").append(`<tr><td>${data.title}</td><td>${data.author}</td><td>${data.year}</td><td>${(data.category) ? data.category : "_"}  </td></tr>`);
         });
     }
-    static find(title){
+    static find(title) {
         $("#table-book tbody").empty();
         console.log(title);
-        if (title){
-            const book = LIST_OF_BOOK.find((data) =>{
+        if (title) {
+            const book = LIST_OF_BOOK.find((data) => {
                 return data.title === title;
             })
-            if (book){
-                $("#table-book tbody").append(`<tr><td>${book.title}</td><td>${book.author}</td><td>${book.year}</td><td>${(book.category) ? book.category: "_"}  </td></tr>`);
-            } else{
+            if (book) {
+                $("#table-book tbody").append(`<tr><td>${book.title}</td><td>${book.author}</td><td>${book.year}</td><td>${(book.category) ? book.category : "_"}  </td></tr>`);
+            } else {
                 $("#table-book tbody").append(`<tr><td colspan="4"> Buku <b> ${title}</b> tidak ditemukan!</td></tr>`);
             }
         } else {
@@ -34,25 +34,25 @@ class Book {
 
 
 //implementasi klas turunan book
-class BiografiBook extends Book{
-    constructor(title, author, year){
-        super( title, author, year)
+class BiografiBook extends Book {
+    constructor(title, author, year) {
+        super(title, author, year)
     }
 
-    setCategory(category){
+    setCategory(category) {
         this.category = category;
     }
 }
 
-class BiografiBookk extends Book{
-    constructor( title,author, year){
-        super(title,author,year);
+class BiografiBookk extends Book {
+    constructor(title, author, year) {
+        super(title, author, year);
     }
 }
 
-class NovelBook extends Book{
-    constructor( title,author, year){
-        super(title,author,year);
+class NovelBook extends Book {
+    constructor(title, author, year) {
+        super(title, author, year);
     }
 }
 
@@ -83,13 +83,8 @@ LIST_OF_BOOK.forEach((data) => {
     $("#table-book tbody").append(`<tr><td>${data.title} </td><td>${data.author}</td><td>${data.year}</td><td>${(data.category) ? data.category : "-"}</td></tr>`);
 })
 
-
-
-
-
-
-$(document).ready(() =>{
-    $("input#input-search-book").keyup(function(){
+$(document).ready(() => {
+    $("input#input-search-book").keyup(function () {
         const name = $("input#input-search-book").val();
         Book.find(name);
     });
